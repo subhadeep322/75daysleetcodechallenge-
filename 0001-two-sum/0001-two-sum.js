@@ -4,21 +4,21 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    let indexnum = nums.map((val,idx)=> ({val,idx}));
-    indexnum.sort((a,b)=>a.val-b.val);
- 
-let left = 0;
-let right = indexnum.length-1;
-while(left<right){
-    let sum = indexnum[left].val +  indexnum[right].val;
-     if(sum === target){
-        return [indexnum[left].idx, indexnum[right].idx];
-     } 
+   let idx = nums.map((val,idx)=>({val,idx}));
+   idx.sort((a,b)=>a.val-b.val);
+   let l= 0;
+   let r=nums.length-1;
+   let sum =0;
+   while(l<r){
+    sum=idx[l].val+idx[r].val;
+    if(sum === target){
+        return [idx[l].idx,idx[r].idx];
+    }
     else if(sum<target){
-        left++;
+        l++;
     }
     else{
-        right--;
+        r--
     }
-}
+   }
 };
